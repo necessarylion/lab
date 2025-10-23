@@ -1,0 +1,8 @@
+nginx:
+  name: nginx
+  image: nginx:latest
+  port: 80
+  nodePort: 31000 
+  labels:
+    app: nginx
+  replicas: 2
