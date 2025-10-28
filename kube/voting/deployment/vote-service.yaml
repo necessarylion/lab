@@ -6,11 +6,12 @@ metadata:
   labels:
     app: vote
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - name: "vote-service"
-      port: 8080
+      # external port to expose
+      port: 80
+      # internal port of the application running in the pod
       targetPort: 80
-      nodePort: 31000
   selector:
     app: vote
