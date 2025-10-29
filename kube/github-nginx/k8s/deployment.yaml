@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+      name: nginx
+    spec:
+      imagePullSecrets:
+        - name: my-lab-secrets
+      containers:
+        - image: ghcr.io/necessarylion/lab:nginx
+          name: nginx
+          resources: {}
+          volumeMounts:
+            - name: secrets-store
+              mountPath: "/mnt/secrets-store"
+
+      volumes:
+        - name: secrets-store
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: my-lab-secret-provider
