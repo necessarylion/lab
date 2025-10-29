@@ -6,7 +6,7 @@ metadata:
   labels:
     app: vote
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - name: "vote-service"
       # external port to expose
