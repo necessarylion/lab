@@ -1,0 +1,40 @@
+services:
+  onetimesecret:
+    image: onetimesecret/onetimesecret:latest
+    container_name: onetimesecret
+    ports:
+      - "7143:7143"              # Access via http://localhost:7143
+    environment:
+      - LOGO_URL=OnetimeSecretLogo.vue
+      - SECRET=supersecretkey   # Change this to a strong random value
+      - REDIS_URL=redis://redis:6379/0
+      - RACK_ENV=production
+      - PORT=7143
+      - AUTH_ENABLED=false
+      - AUTH_SIGNUP=false
+      - HOST=localhost:7143
+      - COLONEL=aj@sead.biz
+      - EMAILER_MODE=smtp
+      - SMTP_HOST=smtp.resend.com
+      - SMTP_PORT=587
+      - SMTP_USERNAME=resend
+      - SMTP_PASSWORD=re_C2dDFFQf_6odfhHkuJMr6EgW7h25ugL8A
+      - FROM_EMAIL=noreply@dartondox.dev
+      - FROMNAME=OneTimeSecret
+      - SMTP_AUTH=login
+      - SMTP_TLS=true
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  redis:
+    image: redis:7
+    container_name: ots-redis
+    ports:
+      - 6380:6379
+    volumes:
+      - ./redis-data:/data
+    restart: unless-stopped
+
+volumes:
+  redis-data:
