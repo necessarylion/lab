@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "8d6a62ef-0d2a-4cb1-92d6-00682fa2437f",
+		"name": "Pdf Rendering Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46570054",
+		"_collection_link": "https://martian-crater-860828.postman.co/workspace/Web2Print-API-Endpoints~bd9568a6-929d-4077-a598-8e4296d504d8/collection/31224372-8d6a62ef-0d2a-4cb1-92d6-00682fa2437f?action=share&source=collection_link&creator=46570054"
+	},
+	"item": [
+		{
+			"name": "create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"queue_id\", jsonData[0].uuid);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "gvmG_vEIthZUamAdrpX0BR_tV3fVUEAH",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"notification_channels\": [\n        \"azure_service_bus\",\n        \"websocket\"\n    ],\n    \"tasks\": [\n        [\n            {\n                \"basePdf\": \"storage/qa-testing/individualize/base_template.pdf\",\n                \"schema\": \"storage/qa-testing/individualize/schema.json\",\n                \"input\": \"storage/qa-testing/individualize/input.json\"\n            },\n            {\n                \"basePdf\": \"storage/qa-testing/individualize/base_template.pdf\",\n                \"schema\": \"storage/qa-testing/individualize/schema.json\",\n                \"input\": \"storage/qa-testing/individualize/input.json\"\n            }\n        ]\n    ],\n    \"other_output_options\": [\n        \"svg\",\n        \"png\",\n        \"jpg\",\n        \"webp\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{prs_base_url}}/queues",
+					"host": [
+						"{{prs_base_url}}"
+					],
+					"path": [
+						"queues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"notification_channels\": [\"azure_service_bus\"],\n    \"email\": \"aj@sead.biz\",\n    \"tasks\": [\n        {\n            \"template\": {\n                \"basePdf\": \"storage/ads_materials/____blank.pdf\",\n                \"schemas\": [[]]\n            },\n            \"inputs\": [{}]\n        },\n        {\n            \"template\": {\n                \"basePdf\": \"storage/ads_materials/____blank.pdf\",\n                \"schemas\": [[]]\n            },\n            \"inputs\": [{}]\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{prs_base_url}}/queues/{{queue_id}}",
+					"host": [
+						"{{prs_base_url}}"
+					],
+					"path": [
+						"queues",
+						"{{queue_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "prs_base_url",
+			"value": "https://qa-bss-web2print-rendering.azurewebsites.net/health",
+			"type": "string"
+		}
+	]
+}

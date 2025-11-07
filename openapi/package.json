@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@readme/postman-to-openapi": "^4.1.0",
+    "@scalar/postman-to-openapi": "^0.3.43"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.1"
+  }
+}
