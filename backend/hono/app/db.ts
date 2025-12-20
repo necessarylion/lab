@@ -1,8 +1,14 @@
 import { env } from "bun"
 import knex from "knex"
-import dbConfig from "@/config/db"
+// @ts-ignore
+import config from "@/knexfile"
+import { knexSnakeCaseMappers, Model, snakeCaseMappers } from "objection"
 
-export const db = knex(dbConfig)
+export const db = knex({
+	...config,
+	...knexSnakeCaseMappers(),
+})
+Model.knex(db)
 
 export function runMigration() {
 	if (env.APP_ENV === "production") {
