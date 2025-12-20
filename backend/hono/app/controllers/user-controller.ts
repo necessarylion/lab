@@ -1,6 +1,7 @@
 import type { Context } from "hono"
 import { Service } from "typedi"
 import UserService from "@/app/services/user-service"
+import { userCreateValidator } from "../validators/user-validator"
 
 @Service()
 export default class UserController {
@@ -10,7 +11,8 @@ export default class UserController {
 		return await this.userService.getUsers()
 	}
 
-	async createUser(_c: Context) {
-		return await this.userService.createUser()
+	async createUser({ req }: Context) {
+		const payload = await userCreateValidator.validate(await req.json())
+		return await this.userService.createUser(payload)
 	}
 }
