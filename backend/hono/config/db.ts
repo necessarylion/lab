@@ -1,5 +1,5 @@
 import { env } from "bun"
-import { Knex } from "knex"
+import type { Knex } from "knex"
 
 const dbConfig: Knex.Config = {
 	client: "mysql2",

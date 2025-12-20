@@ -1,6 +1,6 @@
-import dbConfig from "@/config/db"
 import { env } from "bun"
 import knex from "knex"
+import dbConfig from "@/config/db"
 
 export const db = knex(dbConfig)
 
