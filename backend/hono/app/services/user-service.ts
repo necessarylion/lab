@@ -9,6 +9,12 @@ export default class UserService {
 				name: "John Doe",
 				email: "john.doe@example.com",
 				password: "password",
+				posts: {
+					create: [
+						{ title: "First Post", content: "This is my first post." },
+						{ title: "Second Post", content: "This is my second post." },
+					]
+				}
 			},
 		})
 		return data
