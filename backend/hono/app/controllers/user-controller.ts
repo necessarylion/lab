@@ -12,7 +12,7 @@ export default class UserController {
 	}
 
 	async createUser({ req }: Context) {
-		const payload = await userCreateValidator.validate(await req.json())
+		const payload = await req.validate(userCreateValidator)
 		return await this.userService.createUser(payload)
 	}
 }

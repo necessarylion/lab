@@ -5,6 +5,7 @@ WORKDIR /app
 COPY app/ ./app/
 COPY migrations/ ./migrations/
 COPY routes/ ./routes/
+COPY types/ ./types/
 COPY utils/ ./utils/
 COPY bun.lock ./
 COPY knexfile.ts ./

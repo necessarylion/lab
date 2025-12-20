@@ -5,10 +5,12 @@ import errorHandler from "@/app/error-handler"
 import api from "@/routes/api"
 import web from "@/routes/web"
 import { runMigration } from "./app/db"
+import { vineValidation } from "./app/middlewares/vine-validation-middleware"
 
 await runMigration()
 
 const app = new Hono()
+app.use(vineValidation)
 app.route("/", web)
 app.route("/", api)
 app.onError(errorHandler)
