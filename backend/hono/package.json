@@ -1,12 +1,12 @@
 {
 	"name": "hono",
 	"scripts": {
-		"dev": "bun run --hot index.ts",
+		"dev": "bun run --hot server.ts",
 		"format": "biome format --write",
 		"migrate": "bunx --bun knex migrate:latest",
 		"migrate:rollback": "bunx --bun knex migrate:rollback",
-		"migrate:make": "bunx --bun knex migrate:make",
-		"build:prod": "bun build ./index.ts --outfile=server --compile --minify"
+		"migrate:make": "bunx --bun knex migrate:make -x ts",
+		"build:prod": "bun build ./server.ts --outfile=server --compile --minify -e oracledb -e pg -e sqlite3 -e mysql -e pg-query-stream -e better-sqlite3 -e tedious"
 	},
 	"dependencies": {
 		"hono": "^4.11.1",

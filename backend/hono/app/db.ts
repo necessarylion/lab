@@ -1,10 +1,18 @@
+import dbConfig from "@/config/db"
 import { env } from "bun"
 import knex from "knex"
 
-export const db = knex({
-	client: "mysql2",
-	connection: env.DATABASE_URL || process.env.DATABASE_URL || "",
-	pool: { min: 0, max: 10 },
-})
+export const db = knex(dbConfig)
 
-export const closeDb = async () => await db.destroy()
+export function runMigration() {
+	if (env.APP_ENV === "production") {
+		db.migrate
+			.latest()
+			.then(() => {
+				console.log("Database migrated")
+			})
+			.catch((err) => {
+				console.error("Database migration failed:", err)
+			})
+	}
+}

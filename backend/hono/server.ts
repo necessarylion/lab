@@ -3,6 +3,9 @@ import { Hono } from "hono"
 import errorHandler from "@/app/error-handler"
 import api from "@/routes/api"
 import web from "@/routes/web"
+import { runMigration } from "./app/db"
+
+runMigration()
 
 const app = new Hono()
 app.route("/", web)

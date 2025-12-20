@@ -4,7 +4,7 @@ import UserService from "@/app/services/user-service"
 
 @Service()
 export default class UserController {
-	constructor(private readonly userService: UserService) { }
+	constructor(private readonly userService: UserService) {}
 
 	async getUsers(_c: Context) {
 		return await this.userService.getUsers()
