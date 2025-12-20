@@ -1,6 +1,6 @@
+import { Hono } from "hono"
 import UserController from "@/app/controllers/user-controller"
 import { C } from "@/utils"
-import { Hono } from "hono"
 
 const route = new Hono().basePath("/api")
 

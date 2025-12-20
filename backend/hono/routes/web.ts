@@ -1,6 +1,6 @@
+import { Hono } from "hono"
 import WebController from "@/app/controllers/web-controller"
 import { C } from "@/utils"
-import { Hono } from "hono"
 
 const route = new Hono()
 
