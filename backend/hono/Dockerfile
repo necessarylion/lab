@@ -12,8 +12,7 @@ COPY package.json ./
 COPY server.ts ./
 COPY tsconfig.json ./
 
-RUN bun install
-RUN bun build:prod
+RUN bun install && bun build:prod
 
 FROM debian:12-slim
 WORKDIR /app
