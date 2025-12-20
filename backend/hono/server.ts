@@ -5,7 +5,7 @@ import api from "@/routes/api"
 import web from "@/routes/web"
 import { runMigration } from "./app/db"
 
-runMigration()
+await runMigration()
 
 const app = new Hono()
 app.route("/", web)

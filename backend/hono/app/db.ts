@@ -10,15 +10,15 @@ export const db = knex({
 })
 Model.knex(db)
 
-export function runMigration() {
+export async function runMigration() {
+	console.log(`App environment: ${env.APP_ENV}`)
 	if (env.APP_ENV === "production") {
-		db.migrate
-			.latest()
-			.then(() => {
-				console.log("Database migrated")
-			})
-			.catch((err) => {
-				console.error("Database migration failed:", err)
-			})
+		try {
+			console.log("Running database migrations...")
+			await db.migrate.latest()
+			console.log("Database migrated")
+		} catch (error) {
+			console.error("Error running migrations:", error)
+		}
 	}
 }
