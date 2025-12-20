@@ -9,6 +9,7 @@
 		"build:prod": "bun build ./server.ts --outfile=server --compile --minify -e oracledb -e pg -e sqlite3 -e mysql -e pg-query-stream -e better-sqlite3 -e tedious"
 	},
 	"dependencies": {
+		"@sentry/bun": "^10.32.1",
 		"hono": "^4.11.1",
 		"knex": "^2.5.1",
 		"mysql2": "^3.3.1",

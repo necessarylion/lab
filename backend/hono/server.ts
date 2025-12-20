@@ -1,4 +1,5 @@
 import "reflect-metadata"
+import "@/utils/sentry"
 import { Hono } from "hono"
 import errorHandler from "@/app/error-handler"
 import api from "@/routes/api"

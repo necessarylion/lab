@@ -3,6 +3,7 @@ import knex from "knex"
 // @ts-ignore
 import config from "@/knexfile"
 import { knexSnakeCaseMappers, Model, snakeCaseMappers } from "objection"
+import { logger } from "@sentry/bun"
 
 export const db = knex({
 	...config,
@@ -11,14 +12,14 @@ export const db = knex({
 Model.knex(db)
 
 export async function runMigration() {
-	console.log(`App environment: ${env.APP_ENV}`)
+	logger.info(`App environment: ${env.APP_ENV}`)
 	if (env.APP_ENV === "production") {
 		try {
-			console.log("Running database migrations...")
+			logger.info("Running database migrations...")
 			await db.migrate.latest()
-			console.log("Database migrated")
-		} catch (error) {
-			console.error("Error running migrations:", error)
+			logger.info("Database migrated")
+		} catch (error: any) {
+			logger.error("Error running migrations:", { message: error.message })
 		}
 	}
 }
