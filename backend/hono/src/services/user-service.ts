@@ -9,12 +9,12 @@ export default class UserService {
 				name: "John Doe",
 				email: "john.doe@example.com",
 				password: "password",
-			}
+			},
 		})
-		return data;
+		return data
 	}
 
 	async getUsers() {
-		return await prisma.user.findMany();
+		return await prisma.user.findMany()
 	}
 }

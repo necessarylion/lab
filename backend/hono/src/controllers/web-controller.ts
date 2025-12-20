@@ -1,10 +1,10 @@
-import { Service } from "typedi";
+import { Service } from "typedi"
 
 @Service()
 export default class WebController {
-  async home() {
-    return {
-      message: "Welcome to the Home Page!",
-    }
-  }
+	async home() {
+		return {
+			message: "Welcome to the Home Page!",
+		}
+	}
 }

@@ -4,7 +4,7 @@ import { Service } from "typedi"
 
 @Service()
 export default class UserController {
-	constructor(private readonly userService: UserService) { }
+	constructor(private readonly userService: UserService) {}
 
 	async getUsers(c: Context) {
 		return await this.userService.getUsers()
