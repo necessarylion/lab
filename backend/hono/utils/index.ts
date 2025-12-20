@@ -1,7 +1,7 @@
 import type { Context } from "hono"
 import Container from "typedi"
 
-type Constructor<T> = new (...args: []) => T
+type Constructor<T> = new (...args: any[]) => T
 
 export function C<T>(
 	controller: Constructor<T>,
@@ -9,7 +9,6 @@ export function C<T>(
 ): (c: Context) => Promise<Response> {
 	const instance = Container.get(controller)
 	return async (c: Context) => {
-		// biome-ignore lint/suspicious/noExplicitAny: dynamic method access requires any
 		const data = await (instance[func] as any)(c)
 
 		// normal response

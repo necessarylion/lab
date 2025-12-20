@@ -3,6 +3,7 @@
 	"scripts": {
 		"dev": "bun run --hot server.ts",
 		"format": "biome format --write",
+		"lint": "biome check --fix",
 		"migrate": "bunx --bun knex migrate:latest",
 		"migrate:rollback": "bunx --bun knex migrate:rollback",
 		"migrate:make": "bunx --bun knex migrate:make -x ts",

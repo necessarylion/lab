@@ -1,5 +1,4 @@
 import { Service } from "typedi"
-import { db } from "@/app/db"
 import User from "../models/user"
 
 @Service()
