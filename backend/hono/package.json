@@ -1,12 +1,12 @@
 {
 	"name": "hono",
 	"scripts": {
-		"dev": "bun run --hot src/index.ts",
+		"dev": "bun run --hot index.ts",
 		"lint": "biome format --write",
 		"p:migrate": "bunx --bun prisma migrate dev",
 		"p:generate": "bunx --bun prisma generate",
 		"p:migrate:reset": "bunx --bun prisma migrate reset",
-		"build:prod": "bun build ./src/index.ts --outfile=server --compile --minify"
+		"build:prod": "bun build ./index.ts --outfile=server --compile --minify"
 	},
 	"dependencies": {
 		"@prisma/adapter-mariadb": "^7.2.0",

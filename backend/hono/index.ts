@@ -2,7 +2,7 @@ import "reflect-metadata"
 import { Hono } from "hono"
 import web from "@/routes/web"
 import api from "@/routes/api"
-import errorHandler from "./error-handler"
+import errorHandler from "@/utils/error-handler"
 
 const app = new Hono()
 app.route("/", web)
