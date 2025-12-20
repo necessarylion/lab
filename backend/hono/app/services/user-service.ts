@@ -14,6 +14,6 @@ export default class UserService {
 	}
 
 	async getUsers() {
-		return await User.query().select("*").withGraphFetched("posts")
+		return await User.query().withGraphFetched("posts")
 	}
 }
