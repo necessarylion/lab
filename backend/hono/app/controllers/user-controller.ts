@@ -1,5 +1,5 @@
-import UserService from "@/services/user-service"
-import { Context } from "hono"
+import UserService from "@/app/services/user-service"
+import type { Context } from "hono"
 import { Service } from "typedi"
 
 @Service()

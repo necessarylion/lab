@@ -1,4 +1,4 @@
-import WebController from "@/controllers/web-controller"
+import WebController from "@/app/controllers/web-controller"
 import { C } from "@/utils"
 import { Hono } from "hono"
 

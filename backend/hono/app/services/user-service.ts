@@ -1,4 +1,4 @@
-import { prisma } from "@/utils/db"
+import { prisma } from "@/app/prisma"
 import { Service } from "typedi"
 
 @Service()

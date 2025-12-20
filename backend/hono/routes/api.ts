@@ -1,4 +1,4 @@
-import UserController from "@/controllers/user-controller"
+import UserController from "@/app/controllers/user-controller"
 import { C } from "@/utils"
 import { Hono } from "hono"
 

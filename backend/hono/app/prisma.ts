@@ -1,4 +1,4 @@
-import { PrismaClient } from "@/generated/prisma/client"
+import { PrismaClient } from "@/app/prisma/client"
 import { PrismaMariaDb } from "@prisma/adapter-mariadb"
 import { env } from "bun"
 

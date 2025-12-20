@@ -1,4 +1,4 @@
-import { Context } from "hono"
+import type { Context } from "hono"
 import Container from "typedi"
 
 type Constructor<T = any> = new (...args: any[]) => T
