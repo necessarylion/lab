@@ -1,16 +1,12 @@
-import 'reflect-metadata';
-
-import { Hono } from 'hono'
-import ExampleController from './controllers/example-controller'
-import Container from 'typedi'
+import "reflect-metadata"
+import { Hono } from "hono"
+import web from "@/routes/web"
+import api from "@/routes/api"
+import errorHandler from "./error-handler"
 
 const app = new Hono()
-
-function C<T>(controller: new () => T): T {
-  return Container.get(controller)
-}
-
-app.get('/', C(ExampleController).getExample)
-app.get('/2', C(ExampleController).getExample2)
+app.route("/", web)
+app.route("/", api)
+app.onError(errorHandler)
 
 export default app

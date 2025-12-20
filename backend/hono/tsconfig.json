@@ -4,6 +4,9 @@
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   }
 }
