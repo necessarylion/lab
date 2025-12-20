@@ -5,7 +5,8 @@
 		"lint": "biome format --write",
 		"p:migrate": "bunx --bun prisma migrate dev",
 		"p:generate": "bunx --bun prisma generate",
-		"p:migrate:reset": "bunx --bun prisma migrate reset"
+		"p:migrate:reset": "bunx --bun prisma migrate reset",
+		"build:prod": "bun build ./src/index.ts --outfile=server --compile --minify"
 	},
 	"dependencies": {
 		"@prisma/adapter-mariadb": "^7.2.0",

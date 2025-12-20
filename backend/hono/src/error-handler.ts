@@ -1,14 +1,14 @@
 import { Context } from "hono"
-import { Prisma } from "./generated/prisma/client"
+import { Prisma } from "@/generated/prisma/client"
 
 export default function errorHandler(err: Error, c: Context) {
 	if (err instanceof Prisma.PrismaClientKnownRequestError) {
 		return c.json(
 			{
 				success: false,
-				message: err.message,
+				message: err.message.split("\n").pop(),
 				prismaErrorCode: err.code,
-				meta: err.meta
+				meta: err.meta,
 			},
 			400,
 		)
