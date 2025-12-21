@@ -1,5 +1,6 @@
 import { column, hasMany } from "@adonisjs/lucid/orm"
 import type { HasMany } from "@adonisjs/lucid/types/relations"
+import { DateTime } from "luxon"
 import { Model } from "@/utils/lucid"
 import Post from "../post/post.model"
 
@@ -15,6 +16,12 @@ export default class User extends Model {
 
 	@column()
 	declare password: string
+
+	@column.dateTime()
+	declare createdAt: DateTime
+
+	@column.dateTime()
+	declare updatedAt: DateTime | null
 
 	@hasMany(() => Post)
 	declare posts: HasMany<typeof Post>

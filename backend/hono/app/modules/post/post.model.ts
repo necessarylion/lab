@@ -1,4 +1,5 @@
 import { column } from "@adonisjs/lucid/orm"
+import { DateTime } from "luxon"
 import { Model } from "@/utils/lucid"
 
 export default class Post extends Model {
@@ -13,4 +14,10 @@ export default class Post extends Model {
 
 	@column()
 	declare userId: number
+
+	@column.dateTime()
+	declare createdAt: DateTime
+
+	@column.dateTime()
+	declare updatedAt: DateTime | null
 }
