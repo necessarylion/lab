@@ -1,11 +1,17 @@
 import "reflect-metadata"
 import "@/utils/sentry"
+import { logger } from "@sentry/bun"
+import { env } from "bun"
 import { Hono } from "hono"
 import errorHandler from "@/app/error-handler"
 import api from "@/routes/api"
 import web from "@/routes/web"
 import { runMigration } from "./app/db"
 import { vineValidation } from "./app/middleware/vine_validation_middleware"
+import pkg from "./package.json"
+
+logger.info(`App environment: ${env.APP_ENV}`)
+logger.info(`Version: ${pkg.version}`)
 
 await runMigration()
 

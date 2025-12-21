@@ -1,5 +1,6 @@
 {
 	"name": "hono",
+	"version": "1.0.0",
 	"scripts": {
 		"dev": "bun run --hot server.ts",
 		"format": "biome format --write",

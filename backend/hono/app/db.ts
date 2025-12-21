@@ -12,7 +12,6 @@ export const db = knex({
 Model.knex(db)
 
 export async function runMigration() {
-	logger.info(`App environment: ${env.APP_ENV}`)
 	if (env.APP_ENV === "production") {
 		try {
 			logger.info("Running database migrations...")
