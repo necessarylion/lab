@@ -5,7 +5,7 @@ import errorHandler from "@/app/error-handler"
 import api from "@/routes/api"
 import web from "@/routes/web"
 import { runMigration } from "./app/db"
-import { vineValidation } from "./app/middlewares/vine-validation-middleware"
+import { vineValidation } from "./app/middleware/vine_validation_middleware"
 
 await runMigration()
 

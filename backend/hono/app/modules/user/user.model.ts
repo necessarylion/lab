@@ -1,5 +1,5 @@
 import { Model } from "objection"
-import Post from "./post"
+import Post from "../post/post.model"
 
 export default class User extends Model {
 	static tableName = "users"

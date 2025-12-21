@@ -1,7 +1,7 @@
 import { Infer } from "@vinejs/vine/types"
 import { Service } from "typedi"
-import User from "../models/user"
-import { userCreateValidator } from "../validators/user-validator"
+import User from "./user.model"
+import { userCreateValidator } from "./user.validator"
 
 @Service()
 export default class UserService {

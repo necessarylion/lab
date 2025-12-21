@@ -1,7 +1,7 @@
 import type { Context } from "hono"
 import { Service } from "typedi"
-import UserService from "@/app/services/user-service"
-import { userCreateValidator } from "../validators/user-validator"
+import UserService from "./user.service"
+import { userCreateValidator } from "./user.validator"
 
 @Service()
 export default class UserController {

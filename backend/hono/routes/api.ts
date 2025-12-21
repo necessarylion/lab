@@ -1,5 +1,5 @@
 import { Hono } from "hono"
-import UserController from "@/app/controllers/user-controller"
+import UserController from "@/app/modules/user/user.controller"
 import { C } from "@/utils"
 
 const route = new Hono().basePath("/api")
