@@ -6,7 +6,7 @@ import { userCreateValidator } from "./user.validator"
 @Service()
 export default class UserService {
 	async createUser(payload: Infer<typeof userCreateValidator>) {
-		const data = await User.query().insert({
+		const data = await User.create({
 			name: payload.name,
 			email: payload.email,
 			password: payload.password,
@@ -15,6 +15,6 @@ export default class UserService {
 	}
 
 	async getUsers() {
-		return await User.query().withGraphFetched("posts")
+		return await User.query().preload("posts")
 	}
 }

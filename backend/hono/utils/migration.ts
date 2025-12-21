@@ -1,15 +1,10 @@
 import { logger } from "@sentry/bun"
 import { env } from "bun"
 import knex from "knex"
-import { knexSnakeCaseMappers, Model } from "objection"
 // @ts-expect-error
 import config from "@/knexfile"
 
-export const db = knex({
-	...config,
-	...knexSnakeCaseMappers(),
-})
-Model.knex(db)
+export const db = knex(config)
 
 export async function runMigration() {
 	if (env.APP_ENV === "production") {

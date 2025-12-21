@@ -7,6 +7,7 @@ COPY migrations/ ./migrations/
 COPY routes/ ./routes/
 COPY types/ ./types/
 COPY utils/ ./utils/
+COPY config/ ./config/
 COPY bun.lock ./
 COPY knexfile.ts ./
 COPY package.json ./

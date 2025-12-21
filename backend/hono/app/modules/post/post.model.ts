@@ -1,13 +1,16 @@
-import { Model } from "objection"
+import { column } from "standalone-lucid/orm"
+import { Model } from "@/utils/lucid"
 
 export default class Post extends Model {
-	static tableName = "posts"
-
+	@column({ isPrimary: true })
 	declare id: number
 
+	@column()
 	declare title: string
 
+	@column()
 	declare content: string
 
+	@column()
 	declare userId: number
 }

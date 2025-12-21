@@ -6,7 +6,7 @@ import { Hono } from "hono"
 import errorHandler from "@/app/error-handler"
 import api from "@/routes/api"
 import web from "@/routes/web"
-import { runMigration } from "./app/db"
+import { runMigration } from "./utils/migration"
 import { vineValidation } from "./app/middleware/vine_validation_middleware"
 import { version } from "./package.json"
 
