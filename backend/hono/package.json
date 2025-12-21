@@ -8,16 +8,17 @@
 		"migrate": "bunx --bun knex migrate:latest",
 		"migrate:rollback": "bunx --bun knex migrate:rollback",
 		"migrate:make": "bunx --bun knex migrate:make -x ts",
-		"build:prod": "bun build ./server.ts --outfile=server --compile --minify -e oracledb -e pg -e sqlite3 -e mysql -e pg-query-stream -e better-sqlite3 -e tedious"
+		"build:prod": "bun build ./server.ts --outfile=server --compile --minify -e oracledb -e pg -e sqlite3 -e mysql -e pg-query-stream -e better-sqlite3 -e tedious -e @libsql/sqlite3"
 	},
 	"dependencies": {
+		"@adonisjs/lucid": "^21.8.1",
 		"@sentry/bun": "^10.32.1",
 		"@vinejs/vine": "^4.2.0",
 		"hono": "^4.11.1",
 		"knex": "^2.5.1",
+		"luxon": "^3.7.2",
 		"mysql2": "^3.3.1",
 		"reflect-metadata": "^0.2.2",
-		"standalone-lucid": "0.0.1-alpha.1",
 		"typedi": "^0.10.0"
 	},
 	"devDependencies": {

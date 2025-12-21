@@ -1,5 +1,5 @@
-import { column, hasMany } from "standalone-lucid/orm"
-import type { HasMany } from "standalone-lucid/types/relations"
+import { column, hasMany } from "@adonisjs/lucid/orm"
+import type { HasMany } from "@adonisjs/lucid/types/relations"
 import { Model } from "@/utils/lucid"
 import Post from "../post/post.model"
 

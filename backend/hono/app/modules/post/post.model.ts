@@ -1,4 +1,4 @@
-import { column } from "standalone-lucid/orm"
+import { column } from "@adonisjs/lucid/orm"
 import { Model } from "@/utils/lucid"
 
 export default class Post extends Model {

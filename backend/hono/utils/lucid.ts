@@ -1,7 +1,39 @@
-import { LucidStandalone } from "standalone-lucid"
+import { EventEmitter } from "node:events"
+import { Logger } from "@adonisjs/logger"
+import { Database } from "@adonisjs/lucid/database"
+import { FactoryManager } from "@adonisjs/lucid/factories"
+import { Adapter, BaseModel } from "@adonisjs/lucid/orm"
+import { DatabaseConfig } from "@adonisjs/lucid/types/database"
 import databaseConfig from "@/config/database"
 
-const lucid = new LucidStandalone(databaseConfig as any)
-const { Model, Factory } = lucid
+class SimpleEventEmitter extends EventEmitter {
+	hasListeners = (eventName: string) => this.listenerCount(eventName) > 0
+}
 
-export { lucid, Model, Factory }
+export class Lucid {
+	public db: Database
+
+	public Factory = new FactoryManager()
+
+	public Model: typeof BaseModel
+
+	constructor(dbConfig: DatabaseConfig) {
+		const logger = new Logger({ enabled: true })
+		const emitter = new SimpleEventEmitter()
+		this.db = new Database(dbConfig, logger, emitter as any)
+		emitter.on("db:query", (query) => {
+			console.log(query)
+		})
+		this.Model = this.setupModel()
+	}
+
+	protected setupModel(): typeof BaseModel {
+		BaseModel.$adapter = new Adapter(this.db)
+		return BaseModel
+	}
+}
+
+const lucid = new Lucid(databaseConfig)
+const { Model } = lucid
+
+export { lucid, Model }

@@ -1,9 +1,13 @@
+import { defineConfig } from "@adonisjs/lucid"
 // @ts-expect-error
 import config from "@/knexfile"
 
-export default {
+export default defineConfig({
 	connection: "mysql",
 	connections: {
-		mysql: config,
+		mysql: {
+			...config,
+			debug: false,
+		},
 	},
-}
+})
