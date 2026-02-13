@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zin Kyaw Kyaw (AJ) - Senior Software Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #e2e8f0;
+      --accent: #38bdf8;
+      --accent-light: #0c1a2e;
+      --text: #cbd5e1;
+      --text-light: #94a3b8;
+      --border: #1e293b;
+      --bg: #0f172a;
+      --section-bg: #1a2235;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: #080c18;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: var(--bg);
+      border-radius: 0;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #0f172a 0%, #131c31 50%, #162039 100%);
+      color: #fff;
+      padding: 48px 56px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .profile-wrapper {
+      position: relative;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .profile-pic {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 4px solid rgba(56, 189, 248, 0.5);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .verified-badge {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      width: 30px;
+      height: 30px;
+      background: #38bdf8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid #0f172a;
+    }
+
+    .verified-badge svg {
+      width: 14px;
+      height: 14px;
+      fill: #fff;
+    }
+
+    .header-info {
+      flex: 1;
+    }
+
+    .header h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      letter-spacing: -0.5px;
+    }
+
+    .header h1 span {
+      color: #38bdf8;
+      font-weight: 400;
+    }
+
+    .header .subtitle {
+      font-size: 1.1rem;
+      color: #64748b;
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+
+    .availability-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: #4ade80;
+      background: rgba(74, 222, 128, 0.1);
+      border: 1px solid rgba(74, 222, 128, 0.25);
+      padding: 4px 12px;
+      margin-bottom: 16px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .availability-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 0.9rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #94a3b8;
+    }
+
+    .contact-item svg {
+      width: 16px;
+      height: 16px;
+      fill: #38bdf8;
+      flex-shrink: 0;
+    }
+
+    .contact-item a {
+      color: #94a3b8;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-item a:hover {
+      color: #fff;
+    }
+
+    /* Main Content */
+    .main {
+      padding: 40px 56px;
+    }
+
+    .section {
+      margin-bottom: 36px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+
+    /* Summary */
+    .summary {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.8;
+      background: var(--section-bg);
+      padding: 20px 24px;
+      border-radius: 0;
+      border-left: 4px solid var(--accent);
+    }
+
+    /* Experience */
+    .job {
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .job:last-child {
+      margin-bottom: 0;
+    }
+
+    .job::before {
+      content: '';
+      position: absolute;
+      left: 21px;
+      top: 48px;
+      bottom: -28px;
+      width: 2px;
+      background: #1e293b;
+    }
+
+    .job:last-child::before {
+      display: none;
+    }
+
+    .job-top {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .company-logo {
+      width: 42px;
+      height: 42px;
+      border: 3px solid rgba(56, 189, 248, 0.5);
+      background: #fff;
+      object-fit: contain;
+      padding: 4px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .company-logo-fallback {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      background: var(--section-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+
+    .job-details {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .job-title {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .job-date {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .job-company {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+
+    .job ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .job ul li {
+      font-size: 0.88rem;
+      color: var(--text);
+      margin-bottom: 6px;
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .job ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-category {
+      background: var(--section-bg);
+      padding: 16px 20px;
+      border-radius: 0;
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .skill-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .skill-tag {
+      font-size: 0.8rem;
+      color: var(--text);
+      background: #0f172a;
+      padding: 4px 10px;
+      border-radius: 0;
+      border: 1px solid #1e293b;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .skill-tag i {
+      font-size: 0.9rem;
+      color: #f59e0b;
+    }
+
+    .skill-tag .ai-icon {
+      width: 14px;
+      height: 14px;
+      fill: #f59e0b;
+    }
+
+    /* Education */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      background: var(--section-bg);
+      border-radius: 0;
+      border: 1px solid var(--border);
+      margin-bottom: 10px;
+      gap: 16px;
+    }
+
+    .edu-icon {
+      width: 40px;
+      height: 40px;
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .edu-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: #f59e0b;
+    }
+
+    .edu-info {
+      flex: 1;
+    }
+
+    .edu-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .edu-degree {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .edu-school {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    .edu-year {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    /* Open Source */
+    .oss-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .oss-card {
+      background: var(--section-bg);
+      padding: 18px 20px;
+      border-radius: 0;
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .oss-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .oss-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+
+    .oss-card-title a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .oss-card-title a:hover {
+      text-decoration: underline;
+    }
+
+    .oss-card-desc {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+
+    .oss-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .oss-card ul li {
+      font-size: 0.8rem;
+      color: var(--text);
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 3px;
+    }
+
+    .oss-card ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .stars {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 0.75rem;
+      color: #f59e0b;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    .stars svg {
+      width: 12px;
+      height: 12px;
+      fill: #f59e0b;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      background: var(--section-bg);
+      margin-bottom: 36px;
+      border: 1px solid var(--border);
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 22px 16px;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-number {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    /* Key Achievements */
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 14px;
+    }
+
+    .achievement-card {
+      background: var(--section-bg);
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .achievement-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .achievement-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: #f59e0b;
+    }
+
+    .achievement-text {
+      flex: 1;
+    }
+
+    .achievement-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+
+    .achievement-desc {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .slide-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .stat-number .counter {
+      display: inline;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4); }
+      50% { box-shadow: 0 0 12px 4px rgba(56, 189, 248, 0.15); }
+    }
+
+    .profile-wrapper {
+      animation: pulse-glow 3s ease-in-out infinite;
+      border-radius: 50%;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .achievement-icon {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .achievement-card:nth-child(2) .achievement-icon { animation-delay: 0.5s; }
+    .achievement-card:nth-child(3) .achievement-icon { animation-delay: 1s; }
+    .achievement-card:nth-child(4) .achievement-icon { animation-delay: 1.5s; }
+    .achievement-card:nth-child(5) .achievement-icon { animation-delay: 2s; }
+    .achievement-card:nth-child(6) .achievement-icon { animation-delay: 2.5s; }
+
+    /* Job Tech Tags */
+    .job-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .job-tech-tag {
+      font-size: 0.72rem;
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 2px 8px;
+      font-weight: 600;
+    }
+
+    /* Testimonials */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 16px;
+    }
+
+    .testimonial-card {
+      background: var(--section-bg);
+      padding: 24px;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '\201C';
+      font-size: 3rem;
+      color: var(--accent);
+      opacity: 0.3;
+      position: absolute;
+      top: 8px;
+      left: 16px;
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+
+    .testimonial-text {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 14px;
+      padding-top: 8px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .testimonial-author-info {
+      flex: 1;
+    }
+
+    .testimonial-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .testimonial-role {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    /* Languages */
+    .lang-grid {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .lang-item {
+      background: var(--section-bg);
+      padding: 14px 22px;
+      border-radius: 0;
+      border: 1px solid var(--border);
+      text-align: center;
+      min-width: 140px;
+    }
+
+    .lang-flag {
+      font-size: 1.6rem;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .lang-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .lang-level {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 36px 56px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-text {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .footer-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .btn-primary svg {
+      fill: #0f172a;
+    }
+
+    .btn-primary:hover {
+      background: #7dd3fc;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #38bdf8;
+      border: 2px solid #38bdf8;
+    }
+
+    .btn-outline svg {
+      fill: #38bdf8;
+    }
+
+    .btn-outline:hover {
+      background: rgba(56, 189, 248, 0.1);
+    }
+
+    /* Print */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+      body {
+        background: #080c18;
+      }
+      .container {
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      .header {
+        padding: 32px 40px;
+      }
+      .main {
+        padding: 28px 40px;
+      }
+      .skill-category:hover,
+      .oss-card:hover,
+      .achievement-card:hover {
+        transform: none;
+        box-shadow: none;
+      }
+      .fade-in, .slide-in-left {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .profile-wrapper {
+        animation: none !important;
+      }
+      .achievement-icon {
+        animation: none !important;
+      }
+      .footer {
+        display: none;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .container {
+        margin: 0;
+        border-radius: 0;
+      }
+      .header, .main {
+        padding: 28px 24px;
+      }
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .profile-pic {
+        width: 100px;
+        height: 100px;
+      }
+      .contact-row {
+        justify-content: center;
+      }
+      .header h1 {
+        font-size: 1.8rem;
+      }
+      .contact-row {
+        gap: 12px;
+      }
+      .job-header {
+        flex-direction: column;
+      }
+      .edu-item {
+        flex-direction: column;
+        gap: 4px;
+      }
+      .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .stat-item:nth-child(2) {
+        border-right: none;
+      }
+      .stat-item:nth-child(3),
+      .stat-item:nth-child(4) {
+        border-top: 1px solid var(--border);
+      }
+      .achievements-grid {
+        grid-template-columns: 1fr;
+      }
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .oss-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="profile-wrapper">
+      <img src="profile.png" alt="Zin Kyaw Kyaw" class="profile-pic">
+      <div class="verified-badge">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+      </div>
+    </div>
+    <div class="header-info">
+    <h1>Zin Kyaw Kyaw <span>(AJ)</span></h1>
+    <p class="subtitle">Senior Software Engineer</p>
+    <div class="availability-badge">Open to Work &middot; Remote / In Office / Open for relocation</div>
+    <div class="contact-row">
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+        <span>Bangkok, Thailand</span>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <a href="tel:+66620350322">+66 620 350 322</a>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <a href="mailto:aj.zinkyaw@gmail.com">aj.zinkyaw@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        <a href="https://github.com/necessarylion" target="_blank">github.com/necessarylion</a>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        <a href="https://www.linkedin.com/in/zinkyawkyaw" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    </div>
+  </header>
+
+  <div class="main">
+
+    <!-- Summary -->
+    <section class="section fade-in">
+      <h2 class="section-title">Summary</h2>
+      <p class="summary">
+        I build systems that scale and teams that ship. Senior Software Engineer with 8+ years of hands-on experience
+        turning complex requirements into high-performance applications using Node.js, Golang, and PHP.
+        From reducing API latency by 98% at Omise to leading a 5-person engineering team at SEAD,
+        I bring a builder's mindset to every project. Active open-source author with 10+ repositories
+        and contributions to projects like PDFMe (4.1k+ stars).
+      </p>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar fade-in">
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="8">0</span>+</div>
+        <div class="stat-label">Years Exp</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="10">0</span>+</div>
+        <div class="stat-label">Repositories</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="60">0</span>+</div>
+        <div class="stat-label">GitHub Stars</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="3">0</span></div>
+        <div class="stat-label">Countries Worked</div>
+      </div>
+    </div>
+
+    <!-- Key Achievements -->
+    <section class="section">
+      <h2 class="section-title">Key Achievements</h2>
+      <div class="achievements-grid">
+        <div class="achievement-card fade-in">
+          <div class="achievement-icon"><svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg></div>
+          <div class="achievement-text">
+            <div class="achievement-title">98% API Latency Reduction</div>
+            <div class="achievement-desc">Optimized caching & queries to cut response time from 500ms–1s down to 2–10ms at Omise</div>
+          </div>
+        </div>
+        <div class="achievement-card fade-in">
+          <div class="achievement-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="achievement-text">
+            <div class="achievement-title">Open-Source Author</div>
+            <div class="achievement-desc">Created IoRedis for Dart and Dox Framework, used by developers worldwide</div>
+          </div>
+        </div>
+        <div class="achievement-card fade-in">
+          <div class="achievement-icon"><svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg></div>
+          <div class="achievement-text">
+            <div class="achievement-title">PDF/X-4 Standard Compliance</div>
+            <div class="achievement-desc">Built production-grade PDF printing system with CMYK color space support</div>
+          </div>
+        </div>
+        <div class="achievement-card fade-in">
+          <div class="achievement-icon"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg></div>
+          <div class="achievement-text">
+            <div class="achievement-title">Full-Stack Framework Creator</div>
+            <div class="achievement-desc">Built Dox, a full-featured backend framework for Dart from scratch, inspired by NestJS/Laravel</div>
+          </div>
+        </div>
+        <div class="achievement-card fade-in">
+          <div class="achievement-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+          <div class="achievement-text">
+            <div class="achievement-title">Team Leadership & Mentorship</div>
+            <div class="achievement-desc">Led engineering teams and mentored junior developers through code reviews and pair programming</div>
+          </div>
+        </div>
+        <div class="achievement-card fade-in">
+          <div class="achievement-icon"><svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg></div>
+          <div class="achievement-text">
+            <div class="achievement-title">Cross-Platform Polyglot</div>
+            <div class="achievement-desc">Proficient across 7+ languages and 3 cloud platforms (AWS, Azure, GCP)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section fade-in">
+      <h2 class="section-title">Experience</h2>
+
+      <div class="job slide-in-left">
+        <div class="job-top">
+          <img src="sead.png" alt="SEAD" class="company-logo">
+          <div class="job-details">
+            <div class="job-header">
+              <span class="job-title">Lead Software Engineer</span>
+              <span class="job-date">Oct 2023 - Present</span>
+            </div>
+            <div class="job-company">Southeast Asia Development, Hong Kong</div>
+            <ul>
+              <li>Engineered a production-grade PDF printing application compliant with PDF/X-4 standards using pdf-lib, processing 10,000+ documents monthly.</li>
+              <li>Led a team of 5 engineers, delivering end-to-end software projects on schedule using agile methodologies.</li>
+              <li>Mentored 3 junior developers through 100+ code reviews and pair programming sessions, accelerating team growth.</li>
+            </ul>
+            <div class="job-tech">
+              <span class="job-tech-tag">Node.js</span>
+              <span class="job-tech-tag">TypeScript</span>
+              <span class="job-tech-tag">React</span>
+              <span class="job-tech-tag">pdf-lib</span>
+              <span class="job-tech-tag">AWS</span>
+              <span class="job-tech-tag">Docker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="job slide-in-left">
+        <div class="job-top">
+          <img src="omise.png" alt="Omise" class="company-logo">
+          <div class="job-details">
+            <div class="job-header">
+              <span class="job-title">Software Engineer</span>
+              <span class="job-date">Jul 2022 - Oct 2023</span>
+            </div>
+            <div class="job-company">Omise, Bangkok, Thailand</div>
+            <ul>
+              <li>Owned and maintained 6+ payment platform SDKs and plugins across WooCommerce, Shopify, Magento, PHP, Node.js, and Go.</li>
+              <li>Architected caching and query optimizations that reduced API latency by 98% (from 500ms–1s down to 2–10ms).</li>
+              <li>Shipped responsive, merchant-facing interfaces that improved developer onboarding, reducing integration time by 40%.</li>
+            </ul>
+            <div class="job-tech">
+              <span class="job-tech-tag">Go</span>
+              <span class="job-tech-tag">PHP</span>
+              <span class="job-tech-tag">Node.js</span>
+              <span class="job-tech-tag">WooCommerce</span>
+              <span class="job-tech-tag">Shopify</span>
+              <span class="job-tech-tag">Magento</span>
+              <span class="job-tech-tag">Redis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="job slide-in-left">
+        <div class="job-top">
+          <img src="developnow.webp" alt="Develop Now" class="company-logo">
+          <div class="job-details">
+            <div class="job-header">
+              <span class="job-title">Senior Backend Developer</span>
+              <span class="job-date">Sep 2021 - Jul 2022</span>
+            </div>
+            <div class="job-company">Develop Now / Hungry Now, Bangkok, Thailand</div>
+            <ul>
+              <li>Built and scaled the backend for a food delivery platform serving 1,000+ daily orders using Laravel, MySQL, Node.js, and Socket.IO.</li>
+              <li>Designed 20+ RESTful APIs consumed by web and mobile clients, enabling seamless order and delivery workflows.</li>
+              <li>Architected a real-time driver location tracking system with Socket.IO, supporting 500+ concurrent connections.</li>
+            </ul>
+            <div class="job-tech">
+              <span class="job-tech-tag">Laravel</span>
+              <span class="job-tech-tag">Node.js</span>
+              <span class="job-tech-tag">Socket.IO</span>
+              <span class="job-tech-tag">MySQL</span>
+              <span class="job-tech-tag">REST API</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="job slide-in-left">
+        <div class="job-top">
+          <img src="befeni.png" alt="Befeni" class="company-logo">
+          <div class="job-details">
+            <div class="job-header">
+              <span class="job-title">Mid PHP Developer</span>
+              <span class="job-date">Aug 2019 - Sep 2021</span>
+            </div>
+            <div class="job-company">Befeni GmbH, Bangkok, Thailand</div>
+            <ul>
+              <li>Developed a full-stack production management system with Laravel, Vue.js, and MySQL, tracking 5,000+ garment orders.</li>
+              <li>Integrated 3 mail and payment service modules, reducing order-to-delivery processing time by 30%.</li>
+              <li>Built a Cordova-based mobile app for barcode scanning, used by 50+ factory staff for real-time order tracking.</li>
+            </ul>
+            <div class="job-tech">
+              <span class="job-tech-tag">Laravel</span>
+              <span class="job-tech-tag">Vue.js</span>
+              <span class="job-tech-tag">MySQL</span>
+              <span class="job-tech-tag">Cordova</span>
+              <span class="job-tech-tag">REST API</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="job slide-in-left">
+        <div class="job-top">
+          <img src="trcloud.jpeg" alt="TR Cloud" class="company-logo">
+          <div class="job-details">
+            <div class="job-header">
+              <span class="job-title">Junior PHP Developer</span>
+              <span class="job-date">Mar 2018 - Aug 2019</span>
+            </div>
+            <div class="job-company">TR Cloud, Bangkok, Thailand</div>
+            <ul>
+              <li>Contributed to a cloud-based accounting system serving 200+ business clients, implementing 30+ features using PHP, JavaScript, and MySQL.</li>
+              <li>Resolved 100+ bugs and delivered features consistently under tight deadlines in a fast-paced, agile team environment.</li>
+            </ul>
+            <div class="job-tech">
+              <span class="job-tech-tag">PHP</span>
+              <span class="job-tech-tag">JavaScript</span>
+              <span class="job-tech-tag">MySQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section fade-in">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <div class="skill-label">Backend</div>
+          <div class="skill-tags">
+            <span class="skill-tag"><i class="devicon-nodejs-plain"></i>Node.js</span>
+            <span class="skill-tag"><i class="devicon-php-plain"></i>PHP</span>
+            <span class="skill-tag"><i class="devicon-go-plain"></i>Golang</span>
+            <span class="skill-tag"><i class="devicon-rust-original"></i>Rust</span>
+            <span class="skill-tag"><i class="devicon-dart-plain"></i>Dart</span>
+            <span class="skill-tag"><i class="devicon-laravel-original"></i>Laravel</span>
+            <span class="skill-tag"><i class="devicon-typescript-plain"></i>TypeScript</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-label">Frontend</div>
+          <div class="skill-tags">
+            <span class="skill-tag"><i class="devicon-javascript-plain"></i>JavaScript</span>
+            <span class="skill-tag"><i class="devicon-typescript-plain"></i>TypeScript</span>
+            <span class="skill-tag"><i class="devicon-vuejs-plain"></i>Vue</span>
+            <span class="skill-tag"><i class="devicon-react-original"></i>React</span>
+            <span class="skill-tag"><i class="devicon-nuxtjs-plain"></i>Nuxt</span>
+            <span class="skill-tag"><i class="devicon-tailwindcss-original"></i>Tailwind</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-label">Mobile</div>
+          <div class="skill-tags">
+            <span class="skill-tag"><i class="devicon-flutter-plain"></i>Flutter</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-label">Database</div>
+          <div class="skill-tags">
+            <span class="skill-tag"><i class="devicon-mysql-plain"></i>MySQL</span>
+            <span class="skill-tag"><i class="devicon-postgresql-plain"></i>PostgreSQL</span>
+            <span class="skill-tag"><i class="devicon-mongodb-plain"></i>MongoDB</span>
+            <span class="skill-tag"><i class="devicon-redis-plain"></i>Redis</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-label">DevOps & Cloud</div>
+          <div class="skill-tags">
+            <span class="skill-tag"><i class="devicon-docker-plain"></i>Docker</span>
+            <span class="skill-tag"><i class="devicon-amazonwebservices-plain-wordmark"></i>AWS</span>
+            <span class="skill-tag"><i class="devicon-azure-plain"></i>Azure</span>
+            <span class="skill-tag"><i class="devicon-googlecloud-plain"></i>Google Cloud</span>
+            <span class="skill-tag"><i class="devicon-figma-plain"></i>Figma</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-label">Vibe Coding</div>
+          <div class="skill-tags">
+            <span class="skill-tag"><svg class="ai-icon" viewBox="0 0 24 24"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z"/></svg>Claude Code</span>
+            <span class="skill-tag"><svg class="ai-icon" viewBox="0 0 24 24"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z"/></svg>Cursor</span>
+            <span class="skill-tag"><svg class="ai-icon" viewBox="0 0 24 24"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z"/></svg>GitHub Copilot</span>
+            <span class="skill-tag"><svg class="ai-icon" viewBox="0 0 24 24"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z"/></svg>OpenAI Codex</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section fade-in">
+      <h2 class="section-title">Education</h2>
+      <div class="edu-item">
+        <div class="edu-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+        </div>
+        <div class="edu-info">
+          <div class="edu-degree">Bachelor of Engineering in Electronics and Communication</div>
+          <div class="edu-school">Technological University Myitkyina, Myanmar</div>
+        </div>
+        <span class="edu-year">2016</span>
+      </div>
+      <div class="edu-item">
+        <div class="edu-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+        </div>
+        <div class="edu-info">
+          <div class="edu-degree">Bachelor of Technology in Electronics and Communication</div>
+          <div class="edu-school">Technological University Myitkyina, Myanmar</div>
+        </div>
+        <span class="edu-year">2015</span>
+      </div>
+    </section>
+
+    <!-- Open Source -->
+    <section class="section fade-in">
+      <h2 class="section-title">Open-Source Contributions</h2>
+      <div class="oss-grid">
+        <div class="oss-card">
+          <div class="oss-card-title">
+            <a href="https://github.com/pdfme/pdfme" target="_blank">PDFMe</a>
+            <span class="stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              4.1k
+            </span>
+          </div>
+          <div class="oss-card-desc">TypeScript/React PDF generation library</div>
+          <ul>
+            <li>Implemented CMYK/RGB color space support for print-ready output</li>
+            <li>Added PDF image embedding and text formatting (strikethrough, underline)</li>
+            <li>Built output intent profiles for PDF/X standard compliance</li>
+          </ul>
+        </div>
+        <div class="oss-card">
+          <div class="oss-card-title">
+            <a href="https://github.com/dartondox/ioredis" target="_blank">IoRedis for Dart</a>
+          </div>
+          <div class="oss-card-desc">High-performance Redis client for Dart, authored from scratch</div>
+        </div>
+        <div class="oss-card">
+          <div class="oss-card-title">
+            <a href="https://github.com/dartondox/dox" target="_blank">Dart On Dox</a>
+          </div>
+          <div class="oss-card-desc">Full-featured backend framework for Dart, inspired by NestJS/Laravel</div>
+        </div>
+        <div class="oss-card">
+          <div class="oss-card-title">
+            <a href="https://github.com/necessarylion/search-js" target="_blank">Search JS</a>
+          </div>
+          <div class="oss-card-desc">Lightweight, framework-agnostic instant search UI component</div>
+        </div>
+        <div class="oss-card">
+          <div class="oss-card-title">
+            <a href="https://github.com/necessarylion/country-list-with-dial-code-and-flag" target="_blank">Country List</a>
+            <span class="stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              59
+            </span>
+          </div>
+          <div class="oss-card-desc">Comprehensive country dataset with dial codes, flags, and metadata</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section fade-in">
+      <h2 class="section-title">What People Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-text">AJ is one of the most reliable engineers I've worked with. He took ownership of our PDF system and delivered production-grade quality that exceeded expectations. His ability to solve complex problems independently is exceptional.</div>
+          <div class="testimonial-author">
+            <div class="testimonial-author-info">
+              <div class="testimonial-name">Christian Koch</div>
+              <div class="testimonial-role">Product Owner, SBE</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">His contributions to our SDK ecosystem were outstanding. AJ reduced our API latency by 98% and consistently delivered clean, well-tested code. A true full-stack talent who elevates the whole team.</div>
+          <div class="testimonial-author">
+            <div class="testimonial-author-info">
+              <div class="testimonial-name">Daniel Fowler</div>
+              <div class="testimonial-role">Engineering Manager, Omise</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">AJ built our entire production management system from the ground up. His work on the barcode scanning app transformed how our factory staff tracked orders. Always dependable and proactive.</div>
+          <div class="testimonial-author">
+            <div class="testimonial-author-info">
+              <div class="testimonial-name">Renke Marten Schulz</div>
+              <div class="testimonial-role">Engineering Manager, Befeni GmbH</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Languages -->
+    <section class="section fade-in">
+      <h2 class="section-title">Languages</h2>
+      <div class="lang-grid">
+        <div class="lang-item">
+          <div class="lang-flag">🇲🇲</div>
+          <div class="lang-name">Burmese</div>
+          <div class="lang-level">Native</div>
+        </div>
+        <div class="lang-item">
+          <div class="lang-flag">🇬🇧</div>
+          <div class="lang-name">English</div>
+          <div class="lang-level">Professional</div>
+        </div>
+        <div class="lang-item">
+          <div class="lang-flag">🇮🇳</div>
+          <div class="lang-name">Hindi</div>
+          <div class="lang-level">Intermediate</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="footer">
+    <p class="footer-text">Interested in working together? Let's connect.</p>
+    <div class="footer-buttons">
+      <a href="mailto:aj.zinkyaw@gmail.com" class="btn btn-primary">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Hire Me
+      </a>
+      <a href="javascript:window.print()" class="btn btn-outline">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        Download CV
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Scroll reveal animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in, .slide-in-left').forEach(el => observer.observe(el));
+
+  // Counter animation
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counters = entry.target.querySelectorAll('.counter');
+        counters.forEach(counter => {
+          const target = +counter.dataset.target;
+          const duration = 1500;
+          const start = performance.now();
+          const animate = (now) => {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            counter.textContent = Math.floor(target * eased);
+            if (progress < 1) requestAnimationFrame(animate);
+            else counter.textContent = target;
+          };
+          requestAnimationFrame(animate);
+        });
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.stats-bar').forEach(el => counterObserver.observe(el));
+</script>
+
+</body>
+</html>
