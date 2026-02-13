@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "zin-kyaw-kyaw"
+  },
+  "targets": {
+    "aj-zinkyaw": {
+      "hosting": {
+        "aj-zinkyaw": [
+          "aj-zinkyaw"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
