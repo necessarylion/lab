@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: hoppscotch
+      POSTGRES_PASSWORD: hoppscotch
+      POSTGRES_DB: hoppscotch
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    ports:
+      - 5442:5432
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hoppscotch"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  hoppscotch:
+    image: hoppscotch/hoppscotch:latest
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "3000:3000"   # App
+      - "3100:3100"   # Admin dashboard
+      - "3170:3170"   # Backend API
+      - "3200:3200"   # Desktop app bundle server
+    depends_on:
+      db:
+        condition: service_healthy
