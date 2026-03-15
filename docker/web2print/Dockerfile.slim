@@ -1,0 +1,15 @@
+FROM node:20-alpine
+
+RUN apk add --no-cache \
+    bash \
+    curl \
+    dumb-init \
+    imagemagick \
+    graphicsmagick \
+    ghostscript \
+    font-noto ghostscript-fonts \
+    poppler-data poppler-utils \
+    cairo jpeg pango giflib \
+    redis
+
+RUN npm install -g pm2 concurrently
