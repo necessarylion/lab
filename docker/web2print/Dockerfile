@@ -20,4 +20,4 @@ RUN apk add --no-cache \
     redis
 
 RUN npm install -g bun
-RUN bun install -g pm2 concurrently
+RUN npm install -g pm2 concurrently
