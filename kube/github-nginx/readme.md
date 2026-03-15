@@ -4,6 +4,7 @@
 
 ```bash
 docker build -t ghcr.io/necessarylion/lab:nginx .
+docker build -t registry.coolify.sead.biz/lab:nginx .
 ```
 
 ## Docker login
